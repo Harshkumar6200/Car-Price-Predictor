@@ -2,9 +2,10 @@ import streamlit as st
 import pickle 
 import numpy as np
 import pandas as pd
+import altair as alt
 
 # Load the model
-rf1 = pickle.load(open("Random_Forest_Regressor.pkl", 'rb'))
+rf1 = pickle.load(open("D:/PYTHON1/Capstone Project/Random_Forest_Regressor.pkl", 'rb'))
 
 # Display an image
 st.image(r"C:\Users\Lenovo\Downloads\Audi Car.jpg")
@@ -42,7 +43,123 @@ if st.button('Predict'):
     prediction = rf1.predict(test)
     st.success(f"Predicted Car Price: {prediction[0]:.2f}")
 
-st.image(r"C:\Users\Lenovo\Downloads\model.jpeg")
+# Line Chart of km_driven and Selling Price
+
+st.title("Line Chart of km_Driven and Selling Price")
+
+data = pd.read_csv(r"D:\PYTHON1\Capstone Project\Car Details 2.csv")
+
+line_chart = alt.Chart(data).mark_line(point=True).encode(
+    x='km_driven',
+    y='selling_price',
+    tooltip=['km_driven', 'selling_price']
+).properties(
+    title='Line Plot of km_driven vs Selling Price',
+    width=600,
+    height=400
+)
+
+st.altair_chart(line_chart, use_container_width=True)
+
+# Line Chart of Year and Selling Price
+
+st.title("Line Chart of Year and Selling Price")
+
+line_chart = alt.Chart(data).mark_line(point=True).encode(
+    x='year',
+    y='selling_price',
+    tooltip=['year', 'selling_price']
+).properties(
+    title='Line Plot of year vs Selling Price',
+    width=600,
+    height=400
+)
+
+st.altair_chart(line_chart, use_container_width=True)
+
+# Bar Chart of Year and Selling Price
+
+st.title("Bar Chart of Fuel and Selling Price")
+
+bar_chart = alt.Chart(data).mark_bar(point=True).encode(
+    x='fuel',
+    y='selling_price',
+    tooltip=['fuel', 'selling_price']
+).properties(
+    title='Bar Plot of Fuel vs Selling Price',
+    width=600,
+    height=400
+)
+
+st.altair_chart(bar_chart, use_container_width=True)
+
+# Bar Chart of Brand and Selling Price
+
+st.title("Bar Chart of Brand and Selling Price")
+
+bar_chart = alt.Chart(data).mark_bar(point=True).encode(
+    x='brands',
+    y='selling_price',
+    tooltip=['brands', 'selling_price']
+).properties(
+    title='Bar Plot of Brand vs Selling Price',
+    width=600,
+    height=400
+)
+
+st.altair_chart(bar_chart, use_container_width=True)
+
+# pie Chart of Seller Type and Selling Price
+
+st.title("Pie Chart of Seller Type and Selling Price")
+
+data_aggregated = data.groupby('seller_type').sum().reset_index()
+
+pie_chart = alt.Chart(data_aggregated).mark_arc().encode(
+    theta=alt.Theta(field='selling_price', type='quantitative'),
+    color=alt.Color(field='seller_type', type='nominal'),
+    tooltip=['seller_type', 'selling_price']
+).properties(
+    title='Pie Chart of Seller Type vs Selling Price',
+    width=600,
+    height=400
+)
+
+st.altair_chart(pie_chart, use_container_width=True)
+
+
+# Bar Chart of Transmission Type and Selling Price
+
+st.title("Bar Chart of Transmission Type and Selling Price")
+
+bar_chart = alt.Chart(data).mark_bar(point=True).encode(
+    x='selling_price',
+    y='transmission',
+    tooltip=['transmission', 'selling_price']
+).properties(
+    title='Bar Plot of Transmission Type vs Selling Price',
+    width=600,
+    height=400
+)
+
+st.altair_chart(bar_chart, use_container_width=True)
+
+# Bar Chart of Owner Type and Selling Price
+
+st.title("Bar Chart of Owner Type and Selling Price")
+
+bar_chart = alt.Chart(data).mark_bar(point=True).encode(
+    x='owner',
+    y='selling_price',
+    tooltip=['owner', 'selling_price']
+).properties(
+    title='Bar Plot of Owner Type vs Selling Price',
+    width=600,
+    height=400
+)
+
+st.altair_chart(bar_chart, use_container_width=True)
+
 
 
 
