@@ -3,4 +3,5 @@ numpy
 pandas
 scikit-learn
 "C:\Users\Lenovo\Downloads\Audi Car.jpg"
-"C:\Users\Lenovo\Downloads\Audi Car.jpg"
+'C:\Users\Lenovo\Downloads\Audi Car.jpg'
+"C:\Users\Lenovo\Downloads\model.jpeg"
