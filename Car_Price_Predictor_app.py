@@ -43,3 +43,12 @@ if st.button('Predict'):
     st.success(f"Predicted Car Price: {prediction[0]:.2f}")
 
 st.image(r"C:\Users\Lenovo\Downloads\model.jpeg")
+
+#streamlit issue reolved.
+Resolved [2024-07-05 14:56:17.016450] 45 packages[2024-07-05 14:56:17.016730]  in 181ms[2024-07-05 14:56:17.016991]
+Audited [2024-07-05 14:56:17.017852] 45 packages[2024-07-05 14:56:17.018110]  in 0.21ms[2024-07-05 14:56:17.018495]
+
+Checking if Streamlit is installed
+Found Streamlit version 1.36.0 in the environment
+
+
