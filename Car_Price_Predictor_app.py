@@ -5,7 +5,7 @@ import pandas as pd
 import altair as alt
 
 # Load the model
-rf1 = pickle.load(open("D:/PYTHON1/Capstone Project/Random_Forest_Regressor.pkl", 'rb'))
+rf1 = pickle.load(open("Random_Forest_Regressor.pkl", 'rb'))
 
 # Display an image
 st.image(r"C:\Users\Lenovo\Downloads\Audi Car.jpg")
