@@ -47,7 +47,7 @@ if st.button('Predict'):
 
 st.title("Line Chart of km_Driven and Selling Price")
 
-data = pd.read_csv(r"D:\PYTHON1\Capstone Project\Car Details 2.csv")
+data = pd.read_csv(r"Car Details 2.csv")
 
 line_chart = alt.Chart(data).mark_line(point=True).encode(
     x='km_driven',
