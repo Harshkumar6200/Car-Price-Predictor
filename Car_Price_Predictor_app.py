@@ -8,7 +8,7 @@ import altair as alt
 rf1 = pickle.load(open("Random_Forest_Regressor.pkl", 'rb'))
 
 # Display an image
-st.image(r"D:\PYTHON1\Capstone Project\images\Audi Car.jpg")
+st.image(r"Audi Car.jpg")
 st.title('Car Price Predictor App')
 st.header('Fill the Details to Predict Car Price')
 
